@@ -1,7 +1,5 @@
 package com.nexr.spark.terasort
 
-package org.apache.spark.examples.terasort
-
 import com.google.common.primitives.UnsignedBytes
 import org.apache.spark.SparkContext._
 import org.apache.spark._
