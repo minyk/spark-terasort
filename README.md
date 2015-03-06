@@ -54,6 +54,6 @@ $ spark-submit --class com.nexr.spark.terasort.TeraValidate --deploy-mode client
 
 # Internals
 
-# Acknowledgement
+# Acknowledgements
 
 This codes are from `https://github.com/ehiggs/spark/tree/terasort`, [Ewan Higgs](https://github.com/ehiggs)' terasort example. Thank you for great example.
