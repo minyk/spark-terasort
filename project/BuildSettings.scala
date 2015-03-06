@@ -35,17 +35,19 @@ object BuildSettings {
         "servlet-api-2.5.jar"
       )
       cp filter { jar => excludes(jar.data.getName) }
-    }
+    },
 
-//    mergeStrategy in assembly <<= (mergeStrategy in assembly) {
-//      (old) => {
-//        // case "project.clj" => MergeStrategy.discard // Leiningen build files
-//        case x if x.startsWith("META-INF") => MergeStrategy.discard // Bumf
-//        case x if x.endsWith(".html") => MergeStrategy.discard // More bumf
-//        case PathList("com", "esotericsoftware", xs @ _*) => MergeStrategy.last // For Log$Logger.class
-//        case x => old(x)
-//      }
-//    }
+    mergeStrategy in assembly <<= (mergeStrategy in assembly) {
+      (old) => {
+        // case "project.clj" => MergeStrategy.discard // Leiningen build files
+        case x if x.startsWith("META-INF") => MergeStrategy.discard // Bumf
+        case x if x.startsWith("hadoop") && x.contains("2.2.0") => MergeStrategy.discard
+        case x if x.endsWith(".html") => MergeStrategy.discard // More bumf
+        case x if x.endsWith("package-info.class") => MergeStrategy.last
+        case PathList("com", "esotericsoftware", xs @ _*) => MergeStrategy.last // For Log$Logger.class
+        case x => old(x)
+      }
+    }
   )
 
   lazy val buildSettings = basicSettings ++ sbtAssemblySettings
