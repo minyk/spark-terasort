@@ -10,18 +10,17 @@ object Dependencies {
   object V {
     val spark     = "1.2.1"
     val specs2    = "2.4.17" // -> "1.13" when we bump to Scala 2.10.0
-    val guava     = "11.0.1"
+    val guava     = "14.0.1"
     val hadoop    = "2.6.0"
     // Add versions for your additional libraries here...
   }
 
   object Libraries {
-    val sparkCore    = "org.apache.spark"           %% "spark-core"            % V.spark
-    val hadoopClient = "org.apache.hadoop"          % "hadoop-client"          % V.hadoop
-    // Add additional libraries from mvnrepository.com (SBT syntax) here...
+    val sparkCore    = "org.apache.spark"           %% "spark-core"            % V.spark   % "provided"
+    val hadoopClient = "org.apache.hadoop"          % "hadoop-client"          % V.hadoop  % "provided"
+    val guava        = "com.google.guava"           % "guava"                  % V.guava
 
     // Scala (test only)
     val specs2       = "org.specs2"                 %% "specs2"           % V.specs2       % "test"
-    val guava        = "com.google.guava"           % "guava"                  % V.guava        % "test"
   }
 }
