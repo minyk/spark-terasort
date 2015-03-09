@@ -21,12 +21,12 @@ object TeraValidate {
       println("usage:")
       println("DRIVER_MEMORY=[mem] bin/run-example " +
         "org.apache.spark.examples.terasort.TeraValidate " +
-        "[input-directory]")
+        "[output-directory]")
       println(" ")
       println("example:")
       println("DRIVER_MEMORY=50g bin/run-example " +
         "org.apache.spark.examples.terasort.TeraValidate " +
-        "file:///scratch/username/terasort_in ")
+        "file:///scratch/username/terasort_out ")
       System.exit(0)
     }
 
