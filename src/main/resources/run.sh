@@ -251,7 +251,7 @@ if (($benchmark_result == 1))
 then
 total_time=`expr ${end} - ${start}`
 total_time_in_hour=$(echo "scale=4;${total_time}/3600" | bc)
-scale_factor=$(echo "scale=4;${hssize}/10000000000" | bc)
+scale_factor=$(echo "scale=4;${hssize}/1000000000000" | bc)
 perf_metric=$(echo "scale=4;${scale_factor}/${total_time_in_hour}" | bc)
 
 echo -e "${green}$sep============${NC}" | tee -a ./result-"${prefix}".log
