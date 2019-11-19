@@ -1,8 +1,7 @@
 package com.nexr.spark.terasort
 
+import java.util.Comparator
 import com.google.common.primitives.UnsignedBytes
-import org.apache.spark.SparkContext._
-import org.apache.spark._
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -13,7 +12,8 @@ import org.apache.spark.{SparkConf, SparkContext}
  */
 object TeraSort {
 
-  implicit val caseInsensitiveOrdering = UnsignedBytes.lexicographicalComparator
+  implicit val caseInsensitiveOrdering : Comparator[Array[Byte]] =
+    UnsignedBytes.lexicographicalComparator
 
   def main(args: Array[String]) {
 
@@ -39,7 +39,7 @@ object TeraSort {
 
     val dataset = sc.newAPIHadoopFile[Array[Byte], Array[Byte], TeraInputFormat](inputFile)
     val sorted = dataset.repartitionAndSortWithinPartitions(
-      new TeraSortPartitioner(dataset.partitions.size))
+      new TeraSortPartitioner(dataset.partitions.length))
     sorted.saveAsNewAPIHadoopFile[TeraOutputFormat](outputFile)
   }
 }
