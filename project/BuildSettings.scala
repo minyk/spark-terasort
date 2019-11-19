@@ -8,7 +8,7 @@ object BuildSettings {
     organization  := "com.nexr",
     version       := "0.1",
     description   := "Simple terasort.",
-    scalaVersion  := "2.10.5", // -> 2.10.0 when Spark is ready
+    scalaVersion  := "2.11.8", // -> 2.10.0 when Spark is ready
     scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
     resolvers     ++= Dependencies.resolutionRepos
   )
