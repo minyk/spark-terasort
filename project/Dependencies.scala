@@ -8,7 +8,7 @@ object Dependencies {
   )
 
   object V {
-    val spark     = "1.2.1"
+    val spark     = "2.0.0"
     val specs2    = "2.4.17" // -> "1.13" when we bump to Scala 2.10.0
     val guava     = "14.0.1"
     val hadoop    = "2.6.0"
